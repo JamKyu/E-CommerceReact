@@ -1,24 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Books from "./pages/Books";
-import BookInfo from "./pages/BookInfo";
-import { books } from "./data.js";
+import MagicItems from "./pages/MagicItems";
+import ItemInfo from "./pages/ItemInfo";
+import { magicItems } from "./data.js";
 import Cart from "./pages/Cart";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   const [cart, setCart] = useState([]);
 
-  function addToCart(book) {
-    setCart([...cart, { ...book, quantity: 1 }]);
+  function addToCart(magicItem) {
+    setCart([...cart, { ...magicItem, quantity: 1 }]);
   }
 
-  function changeQuantity(book, quantity) {
+  function changeQuantity(magicItem, quantity) {
     setCart(
       cart.map((item) =>
-        item.id === book.id
+        item.id === magicItem.id
           ? {
               ...item,
               quantity: +quantity,
@@ -29,7 +30,9 @@ function App() {
   }
 
   function removeItem(id) {
-    setCart((prevSetCart) => prevSetCart.filter((book) => +book.id !== +id));
+    setCart((prevSetCart) =>
+      prevSetCart.filter((magicItem) => +magicItem.id !== +id)
+    );
   }
 
   function numberOfItems() {
@@ -40,36 +43,41 @@ function App() {
     return counter;
   }
 
-  useEffect(() => {
-    console.log(books);
-  }, []);
-
   return (
     <Router>
-      <div className="App">
-        <Nav numberOfItems={numberOfItems()} />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/books" element={<Books books={books} />} />
-          <Route
-            path="/books/:id"
-            element={
-              <BookInfo books={books} addToCart={addToCart} cart={cart} />
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                cart={cart}
-                changeQuantity={changeQuantity}
-                removeItem={removeItem}
-              />
-            }
-          />
-        </Routes>
+      <ScrollToTop>
+        <div className="App">
+          <Nav numberOfItems={numberOfItems()} />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/magicItems"
+              element={<MagicItems magicItems={magicItems} />}
+            />
+            <Route
+              path="/ItemInfo/:id"
+              element={
+                <ItemInfo
+                  magicItems={magicItems}
+                  addToCart={addToCart}
+                  cart={cart}
+                />
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <Cart
+                  cart={cart}
+                  changeQuantity={changeQuantity}
+                  removeItem={removeItem}
+                />
+              }
+            />
+          </Routes>
+        </div>
         <Footer />
-      </div>
+      </ScrollToTop>
     </Router>
   );
 }

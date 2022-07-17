@@ -8,23 +8,23 @@ const Highlights = () => {
       <div className="container">
         <div className="row">
           <h2 className="section__title">
-            Why choose <span className="purple">Library?</span>
+            Why choose <span className="yellow">Kyu's Emporium?</span>
           </h2>
           <div className="highlight__wrapper">
             <Highlight
-              icon={<FontAwesomeIcon icon="bolt" />}
-              title="Easy and Quick"
-              para="Get access to the book you purchased online instantly."
+              icon={<FontAwesomeIcon icon="dungeon" />}
+              title="Lightning Fast"
+              para="Magic items for all adventurers, delivered to you instantly."
             />
             <Highlight
-              icon={<FontAwesomeIcon icon="book-open" />}
-              title="10,000+ Books"
-              para="Library has books in all your favorite categories."
+              icon={<FontAwesomeIcon icon="hat-wizard" />}
+              title="Rare and Wonderous Items"
+              para="Kyu's Emporium stocks the rarest and most wonderous magic items."
             />
             <Highlight
-              icon={<FontAwesomeIcon icon="tags" />}
-              title="Affordable"
-              para="Get your hands on popular books for as little as $10."
+              icon={<FontAwesomeIcon icon="dragon" />}
+              title="Discounted Prices"
+              para="Get your hands on wonderous magic items at discounted prices."
             />
           </div>
         </div>

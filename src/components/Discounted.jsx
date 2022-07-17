@@ -1,6 +1,6 @@
 import React from "react";
-import { books } from "../data";
-import Book from "./ui/Book";
+import { magicItems } from "../data";
+import MagicItem from "./ui/MagicItem";
 
 const Discounted = () => {
   return (
@@ -9,15 +9,15 @@ const Discounted = () => {
         <div className="row">
           <div className="section__title">
             <h2>
-              Discounted <span className="purple">Books</span>
+              Discounted <span className="yellow">Items</span>
             </h2>
           </div>
-          <div className="books">
-            {books
-              .filter((book) => book.salePrice > 0)
+          <div className="magicItems">
+            {magicItems
+              .filter((magicItem) => magicItem.salePrice > 0)
               .slice(0, 8)
-              .map((book) => (
-                <Book book={book} key={book.id} />
+              .map((magicItem) => (
+                <MagicItem magicItem={magicItem} key={magicItem.id} />
               ))}
           </div>
         </div>

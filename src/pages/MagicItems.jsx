@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
-import Book from "../components/ui/Book";
+import MagicItem from "../components/ui/MagicItem";
 
-const Books = ({ books: initialBooks }) => {
-  const [books, setBooks] = useState();
+const MagicItems = ({ magicItems: initialItems }) => {
+  const [magicItems, setItems] = useState();
 
   useEffect(() => {
-    setBooks(initialBooks);
-  }, [initialBooks]);
+    setItems(initialItems);
+  }, [initialItems]);
 
-  function filterBooks(filter) {
+  function filterItems(filter) {
     if (filter === "LOW_TO_HIGH") {
-      setBooks(
-        books
+      setItems(
+        magicItems
           .slice()
           .sort(
             (a, b) =>
@@ -20,8 +20,8 @@ const Books = ({ books: initialBooks }) => {
           )
       );
     } else if (filter === "HIGH_TO_LOW") {
-      setBooks(
-        books
+      setItems(
+        magicItems
           .slice()
           .sort(
             (a, b) =>
@@ -30,24 +30,24 @@ const Books = ({ books: initialBooks }) => {
           )
       );
     } else if (filter === "RATING") {
-      setBooks(books.slice().sort((a, b) => b.rating - a.rating));
+      setItems(magicItems.slice().sort((a, b) => b.rating - a.rating));
     }
   }
 
   return (
-    <div id="books__body">
-      <main id="books__main">
+    <div id="magicItems__body">
+      <main id="magicItems__main">
         <section>
-          <div className="books__container">
+          <div className="magicItems__container">
             <div className="row">
-              <div className="books__header">
-                <h2 className="section__title books__header--title">
-                  All Books
+              <div className="magicItems__header">
+                <h2 className="section__title magicItems__header--title">
+                  All Magic Items
                 </h2>
                 <select
                   id="filter"
                   defaultValue="DEFAULT"
-                  onChange={(event) => filterBooks(event.target.value)}
+                  onChange={(event) => filterItems(event.target.value)}
                 >
                   <option value="DEFAULT" disabled>
                     Sort
@@ -57,10 +57,10 @@ const Books = ({ books: initialBooks }) => {
                   <option value="RATING">Rating</option>
                 </select>
               </div>
-              <div className="books">
-                {books &&
-                  books.map((book) => {
-                    return <Book book={book} key={book.id} />;
+              <div className="magicItems">
+                {magicItems &&
+                  magicItems.map((magicItem) => {
+                    return <MagicItem magicItem={magicItem} key={magicItem.id} />;
                   })}
               </div>
             </div>
@@ -71,4 +71,4 @@ const Books = ({ books: initialBooks }) => {
   );
 };
 
-export default Books;
+export default MagicItems;

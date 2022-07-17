@@ -1,6 +1,6 @@
 import React from "react";
-import Book from "./ui/Book";
-import { books } from "../data";
+import MagicItem from "./ui/MagicItem";
+import { magicItems } from "../data";
 
 const Featured = () => {
   return (
@@ -8,14 +8,14 @@ const Featured = () => {
       <div className="container">
         <div className="row">
           <h2 className="section__title">
-            Featured <span className="purple">Books</span>
+            Featured <span className="yellow">Items</span>
           </h2>
-          <div className="books">
-            {books
-              .filter((book) => book.rating === 5)
+          <div className="magicItems">
+            {magicItems
+              .filter((magicItem) => magicItem.rating === 5)
               .slice(0, 4)
-              .map((book) => (
-                <Book book={book} key={book.id}/>
+              .map((magicItem) => (
+                <MagicItem magicItem={magicItem} key={magicItem.id} />
               ))}
           </div>
         </div>

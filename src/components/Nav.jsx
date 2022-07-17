@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Logo from "../assets/Library.svg";
+import Logo from "../assets/Emporium.svg";
 import { Link } from "react-router-dom";
 
 const Nav = ({ numberOfItems }) => {
@@ -19,13 +19,13 @@ const Nav = ({ numberOfItems }) => {
         </Link>
         <ul className="nav__links">
           <li className="nav__list">
-            <Link to="/" className="nav__link">
+            <Link to="/" className="nav__link link__hover link__hover--yellow">
               Home
             </Link>
           </li>
           <li className="nav__list">
-            <Link to="/books" className="nav__link">
-              Books
+            <Link to="/MagicItems" className="nav__link link__hover link__hover--yellow">
+              Magic Items
             </Link>
           </li>
           <button className="btn__menu" onClick={openMenu}>
@@ -33,7 +33,7 @@ const Nav = ({ numberOfItems }) => {
           </button>
           <li className="nav__icon">
             <Link to="/cart" className="nav__link">
-              <FontAwesomeIcon icon="shopping-cart" />
+              <FontAwesomeIcon icon="dice-d20" />
             </Link>
             {numberOfItems > 0 && (
               <span className="cart__length">{numberOfItems}</span>
@@ -51,8 +51,8 @@ const Nav = ({ numberOfItems }) => {
               </Link>
             </li>
             <li className="menu__list">
-              <Link to="/books" className="menu__link" onClick={closeMenu}>
-                Books
+              <Link to="/MagicItems" className="menu__link" onClick={closeMenu}>
+                Magic Items
               </Link>
             </li>
             <li className="menu__list">

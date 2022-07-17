@@ -13,39 +13,39 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
   };
 
   return (
-    <div id="books__body">
-      <main id="books__main">
-        <div className="books__container">
+    <div id="magicItems__body">
+      <main id="magicItems__main">
+        <div className="magicItems__container">
           <div className="row">
-            <div className="books__selected--top">
-              <h2 className="cart__title">Cart</h2>
+            <div className="magicItems__selected--top">
+              <h2 className="cart__title">Bag</h2>
             </div>
             <div className="cart">
               <div className="cart__header">
-                <span className="cart__book">Book</span>
+                <span className="cart__magicItem">Items</span>
                 <span className="cart__quantity">Quantity</span>
                 <span className="cart__total">Total</span>
               </div>
               <div className="cart__body">
-                {cart.map((book) => {
+                {cart.map((magicItem) => {
                   return (
-                    <div className="cart__item" key={book.id}>
-                      <div className="cart__book">
+                    <div className="cart__item" key={magicItem.id}>
+                      <div className="cart__magicItem">
                         <img
-                          src={book.url}
-                          className="cart__book--img"
+                          src={magicItem.url}
+                          className="cart__magicItem--img"
                           alt=""
                         />
-                        <div className="cart__book--info">
-                          <span className="cart__book--title">
-                            {book.title}
+                        <div className="cart__magicItem--info">
+                          <span className="cart__magicItem--title">
+                            {magicItem.title}
                           </span>
-                          <span className="cart__book--price">
-                            ${(book.salePrice ? book.salePrice : book.originalPrice).toFixed(2)}
+                          <span className="cart__magicItem--price">
+                            ${(magicItem.salePrice ? magicItem.salePrice : magicItem.originalPrice).toFixed(2)}
                           </span>
                           <button
-                            className="cart__book--remove"
-                            onClick={() => removeItem(book.id)}
+                            className="cart__magicItem--remove"
+                            onClick={() => removeItem(magicItem.id)}
                           >
                             Remove
                           </button>
@@ -57,16 +57,16 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
                           min={0}
                           max={99}
                           className="cart__input"
-                          value={book.quantity}
+                          value={magicItem.quantity}
                           onChange={(event) =>
-                            changeQuantity(book, event.target.value)
+                            changeQuantity(magicItem, event.target.value)
                           }
                         />
                       </div>
                       <div className="cart__total">
                         $
                         {(
-                          (book.salePrice || book.originalPrice) * book.quantity
+                          (magicItem.salePrice || magicItem.originalPrice) * magicItem.quantity
                         ).toFixed(2)}
                       </div>
                     </div>
@@ -76,9 +76,9 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               {cart.length === 0 && (
                 <div className="cart__empty">
                   <img src={EmptyCart} alt="" className="cart__empty--img" />
-                  <h2>Your cart is empty!</h2>
-                  <Link to="/books">
-                    <button className="btn">Browse Books</button>
+                  <h2>Your bag is empty!</h2>
+                  <Link to="/MagicItems">
+                    <button className="btn">Browse Magic Items</button>
                   </Link>
                 </div>
               )}
