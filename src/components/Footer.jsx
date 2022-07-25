@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../assets/Emporium.svg";
+import Logo from "../assets/Emporium.png";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
@@ -25,7 +25,7 @@ const Footer = () => {
             </Link>
           </div>
           <div className="footer__copyright">
-            Copyright &copy; 2022 Kyu's Emporium
+            &copy; 2022 Emporium
           </div>
         </div>
       </div>

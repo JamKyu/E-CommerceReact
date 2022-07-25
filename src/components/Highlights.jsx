@@ -8,7 +8,7 @@ const Highlights = () => {
       <div className="container">
         <div className="row">
           <h2 className="section__title">
-            Why choose <span className="yellow">Kyu's Emporium?</span>
+            Why choose <span className="yellow">Emporium?</span>
           </h2>
           <div className="highlight__wrapper">
             <Highlight
@@ -19,7 +19,7 @@ const Highlights = () => {
             <Highlight
               icon={<FontAwesomeIcon icon="hat-wizard" />}
               title="Rare and Wonderous Items"
-              para="Kyu's Emporium stocks the rarest and most wonderous magic items."
+              para="Emporium stocks the rarest and most wonderous magic items."
             />
             <Highlight
               icon={<FontAwesomeIcon icon="dragon" />}

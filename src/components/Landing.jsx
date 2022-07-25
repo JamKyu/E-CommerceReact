@@ -8,7 +8,7 @@ const Landing = () => {
                 <header>
                     <div className="header__container">
                         <div className="header__description">
-                            <h1>Kyu's Emporium</h1>
+                            <h1>Emporium</h1>
                             <h2>Quality magic items for <span className='yellow'>all adventurers</span></h2>
                             <a href="#featured">
                                 <button className="btn">Browse Magic Items</button>
